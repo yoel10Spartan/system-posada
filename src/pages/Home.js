@@ -33,7 +33,9 @@ const Home = () => {
                         fontWeight='800'
                         fontSize='3xl'
                         marginTop='30px'
-                        textShadow='black 0.1em 0.1em 0.5em'
+                        color='#239B56'
+                        textShadow='black 0.1em 0.1em 0.9em'
+                        margin='10px'
                     >
                         ¡REGÍSTRATE PARA VIVIR LA FIESTA MÁS EMOCIONANTE DEL AÑO!
                     </Text>
@@ -49,13 +51,13 @@ const Home = () => {
                     w='100%'
                 >
                     <Box
-                        background='rgba(128, 64, 0, .25)'
+                        background='rgba(35, 155, 86, .45)'
                         backdrop-filter='blur(5px)'
                         borderRadius='30px'
-                        color='#000'
+                        color='#78281F'
                         textShadow='black 0.1em 0.1em 0.8em'
                         padding='20px'
-                        margin='20px 50px'
+                        margin={['20px 20px', '20px 50px']}
                     >
                         <Text
                             textAlign='center'
@@ -229,4 +231,4 @@ const Home = () => {
 
 export default Home
 
-// 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
+// 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
