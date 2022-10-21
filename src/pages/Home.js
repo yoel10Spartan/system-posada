@@ -26,6 +26,7 @@ const Home = () => {
                 background='linear-gradient(to right, #FFFF, #FED975)'
             >
                 <Box
+                    margin='0 20px'
                 >
                     <Text
                         w='100%'
@@ -35,7 +36,6 @@ const Home = () => {
                         marginTop='30px'
                         color='#239B56'
                         textShadow='black 0.1em 0.1em 0.9em'
-                        margin='10px'
                     >
                         ¡REGÍSTRATE PARA VIVIR LA FIESTA MÁS EMOCIONANTE DEL AÑO!
                     </Text>
