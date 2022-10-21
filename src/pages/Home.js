@@ -34,8 +34,7 @@ const Home = () => {
                         fontWeight='800'
                         fontSize='3xl'
                         marginTop='30px'
-                        color='#239B56'
-                        textShadow='black 0.1em 0.1em 0.9em'
+                        color='#380106'
                     >
                         ¡REGÍSTRATE PARA VIVIR LA FIESTA MÁS EMOCIONANTE DEL AÑO!
                     </Text>
@@ -51,11 +50,10 @@ const Home = () => {
                     w='100%'
                 >
                     <Box
-                        background='rgba(35, 155, 86, .45)'
+                        background='rgba(35, 155, 86)'
                         backdrop-filter='blur(5px)'
                         borderRadius='30px'
-                        color='#78281F'
-                        textShadow='black 0.1em 0.1em 0.8em'
+                        color='#FFF'
                         padding='20px'
                         margin={['20px 20px', '20px 50px']}
                     >
