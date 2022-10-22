@@ -84,7 +84,7 @@ const Home = () => {
                             textAlign='center'
                             fontSize='20px'
                         >
-                            Porfavor completa el formulario y se parte de la POSADA EMPRESAS ARIES 2022.
+                            Por favor completa el formulario y se parte de la POSADA EMPRESAS ARIES 2022.
                         </Text>
                         <form onChange={setValuesFun} onSubmit={handleSubmit(handleSend)}>
                             <InputGroup>
