@@ -1,9 +1,16 @@
 import { Box, Button, Flex, Image, Input, InputGroup, Select, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useRef } from 'react'
+import ReCAPTCHA from "react-google-recaptcha"
 import logo from '../assets/logo.png'
 import esfera from '../assets/esfera.png'
 
 const Home = () => {
+
+    const captchaRef = useRef(null)
+    const handleSubmit = () => {
+        const token = captchaRef.current.getValue();
+        captchaRef.current.reset();
+    }
 
     const generateValues = () => {
         const val = []
@@ -61,7 +68,7 @@ const Home = () => {
                             textAlign='center'
                             fontSize='20px'
                         >
-                            Completa el formulario y haz clic en *regístrate para ser parte de la Posada EA 2022.
+                            Completa el formulario y haz clic en *regístrate para ser parte de la POSADA EMPRESAS ARIES 2022.
                         </Text>
                         <form>
                             <InputGroup>
@@ -138,10 +145,10 @@ const Home = () => {
                                 <option value='2'>Swiss Hospital</option>
                                 <option value='3'>Colegio Alfonsino</option>
                                 <option value='4'>Aries Capital</option>
-                                <option value='5'>Laboratorio región norte</option>
-                                <option value='6'>Laboratorio región centro</option>
-                                <option value='7'>Staff región norte</option>
-                                <option value='8'>Staff región centro</option>
+                                <option value='5'>Laboratorio Región Norte</option>
+                                <option value='6'>Laboratorio Región Centro</option>
+                                <option value='7'>Staff Región Norte</option>
+                                <option value='8'>Staff Región Centro</option>
                                 <option value='9'>Call center</option>
                                 <option value='10'>Swisslab</option>
                                 <option value='11'>Azteca</option>
@@ -174,7 +181,7 @@ const Home = () => {
                                 />
                             </InputGroup>
                             <Select 
-                                placeholder='Ubicacion'
+                                placeholder='Ubicación'
                                 mt='20px'
                                 background='white'
                                 color={'#000'}
@@ -207,11 +214,24 @@ const Home = () => {
                                 }
                             </Select>
 
+                            <Box
+                                padding='10px'
+                                w='100%'
+                                display='flex'
+                                justifyContent='center'
+                            >
+                                <ReCAPTCHA 
+                                    sitekey={'6Ld6xp4iAAAAANlK_vbgcMK4Z3z-g-iaryAI2Ded'}
+                                    ref={captchaRef}
+                                />
+                            </Box>
+
                             <Button 
                                 colorScheme='teal' 
                                 variant='solid'
                                 w='100%'
                                 mt='20px'
+                                background='#380106'
                             >
                                 Regístrate
                             </Button>
@@ -229,4 +249,9 @@ const Home = () => {
 
 export default Home
 
-// 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
+// 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
+
+
+// 6Ld6xp4iAAAAANlK_vbgcMK4Z3z-g-iaryAI2Ded
+
+// 6Ld6xp4iAAAAANd4IjAcRk3iJWE_jXpgXIEPnjAM
