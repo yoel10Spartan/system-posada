@@ -12,12 +12,10 @@ const Home = () => {
     const [location, setLocation] = useState(false);
 
     const setValuesFun = (e) => {
-        if(e.target.value === '14'){
+        if(e.target.value === '14' && e.target.name === 'location'){
             setLocation(true)
-            console.log('i');
-        }else{
+        }else if(e.target.value !== '14' && e.target.name === 'location'){
             setLocation(false)
-            console.log('0');
         }
     }
 
@@ -289,8 +287,7 @@ const Home = () => {
 
 export default Home
 
-// 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
-
+// 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
 
 // 6Ld6xp4iAAAAANlK_vbgcMK4Z3z-g-iaryAI2Ded
 
