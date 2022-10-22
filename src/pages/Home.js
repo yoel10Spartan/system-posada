@@ -1,14 +1,32 @@
 import { Box, Button, Flex, Image, Input, InputGroup, Select, Text } from '@chakra-ui/react'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReCAPTCHA from "react-google-recaptcha"
+import { useForm } from "react-hook-form";
 import logo from '../assets/logo.png'
 import esfera from '../assets/esfera.png'
 
 const Home = () => {
 
     const captchaRef = useRef(null)
-    const handleSubmit = () => {
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    const [location, setLocation] = useState(false);
+
+    const setValuesFun = (e) => {
+        if(e.target.value === '14'){
+            setLocation(true)
+            console.log('i');
+        }else{
+            setLocation(false)
+            console.log('0');
+        }
+    }
+
+    const handleSend = (data) => {
         const token = captchaRef.current.getValue();
+        if(!token){return}
+        console.log(data);
+
+        reset();
         captchaRef.current.reset();
     }
 
@@ -60,23 +78,24 @@ const Home = () => {
                         background='rgba(35, 155, 86)'
                         backdrop-filter='blur(5px)'
                         borderRadius='30px'
-                        color='#FFF'
                         padding='20px'
                         margin={['20px 20px', '20px 50px']}
-                    >
+                        >
                         <Text
+                        color='#FFF'
                             textAlign='center'
                             fontSize='20px'
                         >
-                            Completa el formulario y haz clic en *regístrate para ser parte de la POSADA EMPRESAS ARIES 2022.
+                            Porfavor completa el formulario y se parte de la POSADA EMPRESAS ARIES 2022.
                         </Text>
-                        <form>
+                        <form onChange={setValuesFun} onSubmit={handleSubmit(handleSend)}>
                             <InputGroup>
                                 <Input
                                     mt='20px'
                                     type='text'  
                                     placeholder='Nombre (s)*' 
                                     background='white'
+                                    {...register("name", { required: true })}
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -85,6 +104,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Apellido paterno *' 
                                     background='white'
+                                    {...register("lastname1", { required: true })}
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -93,6 +113,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Apellido materno *' 
                                     background='white'
+                                    {...register("lastname2", { required: true })}
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -101,6 +122,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='No. Colaborador *' 
                                     background='white'
+                                    {...register("contributor", { required: true })}
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -109,6 +131,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Correo electrónico *' 
                                     background='white'
+                                    {...register("email", { required: true })}
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -125,14 +148,16 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Teléfono móvil *' 
                                     background='white'
+                                    {...register("numberPhone", { required: true })}
                                 />
                             </InputGroup>
                             <InputGroup>
                                 <Input
                                     mt='20px'
                                     type='text'  
-                                    placeholder='Telefono fijo' 
+                                    placeholder='Teléfono fijo' 
                                     background='white'
+                                    {...register("numberPhoneFijo", { required: true })}
                                 />
                             </InputGroup>
                             <Select 
@@ -140,6 +165,7 @@ const Home = () => {
                                 mt='20px'
                                 background='white'
                                 color={'#000'}
+                                {...register("mark", { required: true })}
                             >
                                 <option value='1'>Empresa Aries</option>
                                 <option value='2'>Swiss Hospital</option>
@@ -170,6 +196,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Puesto' 
                                     background='white'
+                                    {...register("position", { required: true })}
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -178,6 +205,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Sucursal o área' 
                                     background='white'
+                                    {...register("area", { required: true })}
                                 />
                             </InputGroup>
                             <Select 
@@ -185,6 +213,7 @@ const Home = () => {
                                 mt='20px'
                                 background='white'
                                 color={'#000'}
+                                {...register("location", { required: true })}
                             >
                                 <option value='1'>CDMX</option>
                                 <option value='2'>Estado de México</option>
@@ -201,11 +230,21 @@ const Home = () => {
                                 <option value='13'>Chiapas</option>
                                 <option value='14'>Otro</option>
                             </Select>
+                            {
+                                location && <Input
+                                    mt='20px'
+                                    type='text'  
+                                    placeholder='Ubicación' 
+                                    background='white'
+                                    {...register("location2", { required: true })}
+                                />
+                            }
                             <Select 
                                 placeholder='¿Cuántos años llevas en la empresa?'
                                 mt='20px'
                                 background='white'
                                 color={'#000'}
+                                {...register("years", { required: true })}
                             >
                                 {
                                     generateValues().map(i => (
@@ -232,6 +271,7 @@ const Home = () => {
                                 w='100%'
                                 mt='20px'
                                 background='#380106'
+                                type='submit'
                             >
                                 Regístrate
                             </Button>
