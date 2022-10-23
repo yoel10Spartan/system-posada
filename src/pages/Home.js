@@ -33,9 +33,13 @@ const Home = () => {
             data['location'] = data['location2']
             delete data.location2
         }
-
+        
         data['location'] = loc[data['location']]
         data['mark'] = mark[data['mark']]
+        
+        for(let i of Object.keys(data)){
+            data[i] = data[i].toUpperCase()
+        }
 
         setLoad(true);
         const res = await axios.post('https://posadafemeg.xyz/api/posada/', data);
@@ -113,6 +117,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Nombre (s)*' 
                                     background='white'
+                                    textTransform='uppercase'
                                     {...register("name", { required: true })}
                                 />
                             </InputGroup>
@@ -122,6 +127,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Apellido paterno *' 
                                     background='white'
+                                    textTransform='uppercase'
                                     {...register("lastname1", { required: true })}
                                 />
                             </InputGroup>
@@ -131,6 +137,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Apellido materno *' 
                                     background='white'
+                                    textTransform='uppercase'
                                     {...register("lastname2", { required: true })}
                                 />
                             </InputGroup>
@@ -140,6 +147,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='No. Colaborador *' 
                                     background='white'
+                                    textTransform='uppercase'
                                     {...register("contributor", { required: true })}
                                 />
                             </InputGroup>
@@ -149,6 +157,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Correo electrónico *' 
                                     background='white'
+                                    textTransform='uppercase'
                                     {...register("email", { required: true })}
                                 />
                             </InputGroup>
@@ -158,6 +167,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Confirmación de correo electrónico *' 
                                     background='white'
+                                    textTransform='uppercase'
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -167,6 +177,7 @@ const Home = () => {
                                     placeholder='Teléfono móvil *' 
                                     background='white'
                                     {...register("numberPhone", { required: true })}
+                                    textTransform='uppercase'
                                 />
                             </InputGroup>
                             <InputGroup>
@@ -175,6 +186,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Teléfono fijo' 
                                     background='white'
+                                    textTransform='uppercase'
                                     {...register("numberPhoneFijo", { required: true })}
                                 />
                             </InputGroup>
@@ -183,6 +195,7 @@ const Home = () => {
                                 mt='20px'
                                 background='white'
                                 color={'#000'}
+                                textTransform='uppercase'
                                 {...register("mark", { required: true })}
                             >
                                 <option value='1'>Empresa Aries</option>
@@ -210,6 +223,7 @@ const Home = () => {
                             </Select>
                             <InputGroup>
                                 <Input
+                                    textTransform='uppercase'
                                     mt='20px'
                                     type='text'  
                                     placeholder='Puesto' 
@@ -223,6 +237,7 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Sucursal o área' 
                                     background='white'
+                                    textTransform='uppercase'
                                     {...register("area", { required: true })}
                                 />
                             </InputGroup>
@@ -231,6 +246,7 @@ const Home = () => {
                                 mt='20px'
                                 background='white'
                                 color={'#000'}
+                                textTransform='uppercase'
                                 {...register("location", { required: true })}
                             >
                                 <option value='1'>CDMX</option>
@@ -254,7 +270,8 @@ const Home = () => {
                                     type='text'  
                                     placeholder='Ubicación' 
                                     background='white'
-                                    {...register("location2", { required: true })}
+                                    textTransform='uppercase'
+                                    {...register("location2")}
                                 />
                             }
                             <Select 
@@ -262,6 +279,7 @@ const Home = () => {
                                 mt='20px'
                                 background='white'
                                 color={'#000'}
+                                textTransform='uppercase'
                                 {...register("years", { required: true })}
                             >
                                 {
@@ -286,17 +304,18 @@ const Home = () => {
                             <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
                                 <ModalOverlay />
                                 <ModalContent>
-                                    <ModalHeader>Exito</ModalHeader>
+                                    <ModalHeader color='#380106'>Exito</ModalHeader>
                                     <ModalCloseButton />
                                     <ModalBody
                                         textAlign='center'
+                                        color='#380106'
                                     >
                                         Tus datos se han enviado de forma correcta, revisa tu correo.
                                         En caso de no estar en la bandeja de entrada, por favor revisa en SPAM.
                                     </ModalBody>
 
                                     <ModalFooter>
-                                        <Button colorScheme='blue' mr={3} onClick={onClose}>
+                                        <Button background='#380106' color='#fff' mr={3} onClick={onClose}>
                                             Aceptar
                                         </Button>
                                     </ModalFooter>
