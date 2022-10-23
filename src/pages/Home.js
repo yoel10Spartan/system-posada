@@ -1,15 +1,20 @@
-import { Box, Button, Flex, Image, Input, InputGroup, Select, Text } from '@chakra-ui/react'
-import React, { useEffect, useRef, useState } from 'react'
+import { Box, Button, Flex, Image, Input, InputGroup, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Text, useDisclosure } from '@chakra-ui/react'
+import React, { useRef, useState } from 'react'
 import ReCAPTCHA from "react-google-recaptcha"
 import { useForm } from "react-hook-form";
 import logo from '../assets/logo.png'
 import esfera from '../assets/esfera.png'
+import axios from 'axios';
+import {location as loc, mark} from '../utils/items'
 
 const Home = () => {
 
     const captchaRef = useRef(null)
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const [location, setLocation] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const finalRef = React.useRef(null)
+    const [load, setLoad] = useState(false);
 
     const setValuesFun = (e) => {
         if(e.target.value === '14' && e.target.name === 'location'){
@@ -19,12 +24,27 @@ const Home = () => {
         }
     }
 
-    const handleSend = (data) => {
+    const handleSend =  async (data) => {
         const token = captchaRef.current.getValue();
         if(!token){return}
-        console.log(data);
 
-        reset();
+        if(data.location2){
+            delete data.location
+            data['location'] = data['location2']
+            delete data.location2
+        }
+
+        data['location'] = loc[data['location']]
+        data['mark'] = mark[data['mark']]
+
+        setLoad(true);
+        const res = await axios.post('https://posadafemeg.xyz/api/posada/', data);
+        if(res.data.id){
+            onOpen();
+            reset();
+        }
+        setLoad(false);
+
         captchaRef.current.reset();
     }
 
@@ -223,7 +243,7 @@ const Home = () => {
                                 <option value='8'>Veracruz</option>
                                 <option value='9'>San Luis Potosí</option>
                                 <option value='10'>Tlaxcala</option>
-                                <option value='12'>Morelos</option>
+                                <option value='11'>Morelos</option>
                                 <option value='12'>Oaxaca</option>
                                 <option value='13'>Chiapas</option>
                                 <option value='14'>Otro</option>
@@ -263,6 +283,25 @@ const Home = () => {
                                 />
                             </Box>
 
+                            <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+                                <ModalOverlay />
+                                <ModalContent>
+                                    <ModalHeader>Exito</ModalHeader>
+                                    <ModalCloseButton />
+                                    <ModalBody
+                                        textAlign='center'
+                                    >
+                                        Tus datos se han enviado de forma correcta, revisa tu correo.
+                                    </ModalBody>
+
+                                    <ModalFooter>
+                                        <Button colorScheme='blue' mr={3} onClick={onClose}>
+                                            Aceptar
+                                        </Button>
+                                    </ModalFooter>
+                                </ModalContent>
+                            </Modal>
+
                             <Button 
                                 colorScheme='teal' 
                                 variant='solid'
@@ -270,6 +309,7 @@ const Home = () => {
                                 mt='20px'
                                 background='#380106'
                                 type='submit'
+                                isLoading={load}
                             >
                                 Regístrate
                             </Button>
@@ -287,7 +327,7 @@ const Home = () => {
 
 export default Home
 
-// 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
+// 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
 
 // 6Ld6xp4iAAAAANlK_vbgcMK4Z3z-g-iaryAI2Ded
 
