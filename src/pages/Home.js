@@ -28,13 +28,15 @@ const Home = () => {
         const token = captchaRef.current.getValue();
         if(!token){return}
 
+        
         if(data.location2){
             delete data.location
             data['location'] = data['location2']
             delete data.location2
+        } else {
+            data['location'] = loc[data['location']]
         }
         
-        data['location'] = loc[data['location']]
         data['mark'] = mark[data['mark']]
         
         for(let i of Object.keys(data)){
