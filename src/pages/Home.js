@@ -292,6 +292,7 @@ const Home = () => {
                                         textAlign='center'
                                     >
                                         Tus datos se han enviado de forma correcta, revisa tu correo.
+                                        En caso de no estar en la bandeja de entrada, por favor revisa en SPAM.
                                     </ModalBody>
 
                                     <ModalFooter>
