@@ -38,7 +38,7 @@ const Home = () => {
         data['mark'] = mark[data['mark']]
         
         for(let i of Object.keys(data)){
-            data[i] = data[i].toUpperCase()
+            data[i] = data[i]?.toUpperCase()
         }
 
         setLoad(true);
