@@ -323,7 +323,7 @@ const Home = () => {
                                         Tus datos se han enviado de forma correcta,
                                         en unos minutos recibirás un mail de confirmación.
                                         <br/>
-                                        Porfavor revisa tu Bandeja
+                                        Por favor revisa tu Bandeja
                                         de Entrada, en caso de no estar ahi, revisa en SPAM.
                                     </ModalBody>
 
