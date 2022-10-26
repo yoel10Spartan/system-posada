@@ -341,7 +341,7 @@ const Home = () => {
                                 type='submit'
                                 isLoading={load}
                             >
-                                Regístrate
+                                REGISTRARSE
                             </Button>
                         </form>
                     </Box>
