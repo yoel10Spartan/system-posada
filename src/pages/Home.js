@@ -106,11 +106,18 @@ const Home = () => {
                         margin={['20px 20px', '20px 50px']}
                         >
                         <Text
-                        color='#FFF'
+                            color='#FFF'
                             textAlign='center'
                             fontSize='20px'
                         >
                             Por favor completa el formulario y se parte de la POSADA EMPRESAS ARIES 2022.
+                        </Text>
+                        <Text
+                            color='#FFF'
+                            textAlign='center'
+                            fontSize='15px'
+                        >
+                            * Campo obligatorio
                         </Text>
                         <form onChange={setValuesFun} onSubmit={handleSubmit(handleSend)}>
                             <InputGroup>
@@ -186,7 +193,7 @@ const Home = () => {
                                 <Input
                                     mt='20px'
                                     type='text'  
-                                    placeholder='Teléfono fijo' 
+                                    placeholder='Otro Teléfono' 
                                     background='white'
                                     textTransform='uppercase'
                                     {...register("numberPhoneFijo", { required: true })}
@@ -200,15 +207,15 @@ const Home = () => {
                                 textTransform='uppercase'
                                 {...register("mark", { required: true })}
                             >
-                                <option value='1'>Empresa Aries</option>
+                                <option value='1'>Empresas Aries</option>
                                 <option value='2'>Swiss Hospital</option>
                                 <option value='3'>Colegio Alfonsino</option>
                                 <option value='4'>Aries Capital</option>
-                                <option value='5'>Laboratorio Región Norte</option>
-                                <option value='6'>Laboratorio Región Centro</option>
-                                <option value='7'>Staff Región Norte</option>
-                                <option value='8'>Staff Región Centro</option>
-                                <option value='9'>Call center</option>
+                                <option value='5'>Laboratorio GDA Región Norte</option>
+                                <option value='6'>Laboratorio GDA Región Centro</option>
+                                <option value='7'>Staff GDA Región Norte</option>
+                                <option value='8'>Staff GDA Región Centro</option>
+                                <option value='9'>Call center GDA</option>
                                 <option value='10'>Swisslab</option>
                                 <option value='11'>Azteca</option>
                                 <option value='12'>Olab</option>
@@ -219,7 +226,7 @@ const Home = () => {
                                 <option value='17'>Exacta</option>
                                 <option value='18'>Lister</option>
                                 <option value='19'>ProMedic</option>
-                                <option value='20'>Asesores</option>
+                                <option value='20'>Asesores Diagnóstico</option>
                                 <option value='21'>FamilyLabs</option>
                                 <option value='22'>Polab</option>
                             </Select>
