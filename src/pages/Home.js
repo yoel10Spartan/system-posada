@@ -314,17 +314,17 @@ const Home = () => {
                             <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
                                 <ModalOverlay />
                                 <ModalContent>
-                                    <ModalHeader color='#380106'>Exito</ModalHeader>
+                                    <ModalHeader color='#380106'>REGISTRO EXITOSO</ModalHeader>
                                     <ModalCloseButton />
                                     <ModalBody
                                         textAlign='center'
                                         color='#380106'
                                     >
-                                        Tus datos se han enviado de forma correcta, revisa tu correo,
+                                        Tus datos se han enviado de forma correcta,
                                         en unos minutos recibirás un mail de confirmación.
                                         <br/>
-                                        Porfavor revisa tu correo, en caso de no estar en tu Bandeja
-                                        de Entrada, revisa en SPAM.
+                                        Porfavor revisa tu Bandeja
+                                        de Entrada, en caso de no estar ahi, revisa en SPAM.
                                     </ModalBody>
 
                                     <ModalFooter>
