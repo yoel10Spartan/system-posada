@@ -324,7 +324,7 @@ const Home = () => {
                                         en unos minutos recibirás un mail de confirmación.
                                         <br/>
                                         Por favor revisa tu Bandeja
-                                        de Entrada, en caso de no estar ahi, revisa en SPAM.
+                                        de Entrada, en caso de no estar ahí, revisa en SPAM.
                                     </ModalBody>
 
                                     <ModalFooter>
