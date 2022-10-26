@@ -116,6 +116,7 @@ const Home = () => {
                             color='#FFF'
                             textAlign='center'
                             fontSize='15px'
+                            marginTop='5px'
                         >
                             * Campo obligatorio
                         </Text>
@@ -193,7 +194,7 @@ const Home = () => {
                                 <Input
                                     mt='20px'
                                     type='text'  
-                                    placeholder='Otro Teléfono' 
+                                    placeholder='Otro Teléfono *' 
                                     background='white'
                                     textTransform='uppercase'
                                     {...register("numberPhoneFijo", { required: true })}
