@@ -320,8 +320,11 @@ const Home = () => {
                                         textAlign='center'
                                         color='#380106'
                                     >
-                                        Tus datos se han enviado de forma correcta, revisa tu correo.
-                                        En caso de no estar en la bandeja de entrada, por favor revisa en SPAM.
+                                        Tus datos se han enviado de forma correcta, revisa tu correo,
+                                        en unos minutos recibirás un mail de confirmación.
+                                        <br/>
+                                        Porfavor revisa tu correo, en caso de no estar en tu Bandeja
+                                        de Entrada, revisa en SPAM.
                                     </ModalBody>
 
                                     <ModalFooter>
