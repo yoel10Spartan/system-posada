@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 import ReCAPTCHA from "react-google-recaptcha"
 import { useForm } from "react-hook-form";
 import logo from '../assets/logo.png'
-import esfera from '../assets/esfera.png'
+import esfera from '../assets/esferas_gda.png'
 import axios from 'axios';
 import {location as loc, mark} from '../utils/items'
 
