@@ -72,7 +72,7 @@ const Home = () => {
                 justifyContent='center'
                 alignItems='center'
                 w='100%'
-                background='linear-gradient(to top, #FFFF, #FED975)'
+                background='linear-gradient(to bottom, #FFFF, #FED975)'
             >
                 <Box
                     margin='0 20px'
