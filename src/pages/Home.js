@@ -72,7 +72,7 @@ const Home = () => {
                 justifyContent='center'
                 alignItems='center'
                 w='100%'
-                background='linear-gradient(to right, #FFFF, #FED975)'
+                background='linear-gradient(to top, #FFFF, #FED975)'
             >
                 <Box
                     margin='0 20px'
@@ -224,7 +224,7 @@ const Home = () => {
                                 <option value='14'>Dr. Moreira</option>
                                 <option value='15'>Liacsa</option>
                                 <option value='16'>Biomédica</option>
-                                <option value='17'>Exacta</option>
+                                <option value='17'>Exakta</option>
                                 <option value='18'>Lister</option>
                                 <option value='19'>ProMedic</option>
                                 <option value='20'>Asesores Diagnóstico</option>
@@ -236,7 +236,7 @@ const Home = () => {
                                     textTransform='uppercase'
                                     mt='20px'
                                     type='text'  
-                                    placeholder='Puesto' 
+                                    placeholder='Puesto *' 
                                     background='white'
                                     {...register("position", { required: true })}
                                 />
@@ -245,7 +245,7 @@ const Home = () => {
                                 <Input
                                     mt='20px'
                                     type='text'  
-                                    placeholder='Sucursal o área' 
+                                    placeholder='Sucursal o área *' 
                                     background='white'
                                     textTransform='uppercase'
                                     {...register("area", { required: true })}
